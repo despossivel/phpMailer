@@ -7,21 +7,20 @@
 	
 	// Configura��o dos dados do servidor e tipo de conex�o (Estes dados voc� obtem com seu host)
 	$mail->IsSMTP(); // Define que a mensagem ser� SMTP
-	$mail->Host = "smtp.gmail.com"; // Endere�o do servidor SMTP
+	$mail->Host = ""; // Endere�o do servidor SMTP
+	$mail->SMTPAuth = true; // Autentica��o (True: Se o email ser� autenticado | False: se o Email n�o ser� autenticado)
+	$mail->Username = ''; // Usu�rio do servidor SMTP
+	$mail->Password = ''; // A Senha do email indicado acima
 	
 		$mail->Port = 587;
-		$mail->SMTPSecure = 'tls';
-
-	$mail->SMTPAuth = true; // Autentica��o (True: Se o email ser� autenticado | False: se o Email n�o ser� autenticado)
-	$mail->Username = 'mattbmoller@gmail.com'; // Usu�rio do servidor SMTP
-	$mail->Password = 'spud@123#'; // A Senha do email indicado acima
+	//	$mail->SMTPSecure = 'tls';
 	
 	// Remetente (Identifica��o que ser� mostrada para quem receber o email)
-	$mail->From = "mattbmoller@gmail.com";
-	$mail->FromName = "Nome do Remetente ";
+	$mail->From = "no-reply@psl-sc.org.br";
+	$mail->FromName = "PSL ";
 	
 	// Destinat�rio
-	$mail->AddAddress('niceplanet@gmail.com', 'Nome do Destinat�rio');
+	$mail->AddAddress('mattbmoller@gmail.com', 'Nome do Destinat�rio');
 
 	// Opcional (Se quiser enviar c�pia do email)
 	//$mail->AddCC('copia@dominio.com.br', 'Copia'); 
@@ -37,13 +36,16 @@
 	// Envia a Mensagem
 	$enviado = $mail->Send();
 	
+
+	//var_dump($enviado);
+
 	// Verifica se o email foi enviado
 	if($enviado)
 	{
-		echo "E-mail enviado com sucesso!";
+		echo "E-mail enviado com sucesso!\n";
 	}
 	else
 	{
-		echo "N�o foi poss�vel enviar o e-mail, devido ao erro de: ".$mail->ErrorInfo;
+		echo "N�o foi poss�vel enviar o e-mail, devido ao erro de: ".$mail->ErrorInfo."\n";
 	}
 ?>
