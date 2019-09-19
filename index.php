@@ -16,8 +16,8 @@
 	//	$mail->SMTPSecure = 'tls';
 	
 	// Remetente (Identifica��o que ser� mostrada para quem receber o email)
-	$mail->From = "no-reply@psl-sc.org.br";
-	$mail->FromName = "PSL ";
+	$mail->From = "no-reply@pdominio.com.br";
+	$mail->FromName = "no-reply";
 	
 	// Destinat�rio
 	$mail->AddAddress('mattbmoller@gmail.com', 'Nome do Destinat�rio');
